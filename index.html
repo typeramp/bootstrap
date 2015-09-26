@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html>
+  <head>
+  	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
+  	<script src="//code.jquery.com/jquery-1.11.3.min.js"></script>
+  </head>
+  <body>
+  	<nav class="navbar navbar-default">
+  		<span class="navbar-brand">Type Ramp</span>
+  	</nav>
+  	<div class="container-fluid">
+  		<div class="row">
+  			<div class="col-md-8">
+  				<h2>Preview</h2>
+  				<p>Change the options to adjust the look and feel of the page</p>
+  				<div class="test-area">
+	  				<h1 class="tr-header">Header</h1>
+	  				<h2 class="tr-sub-header">Sub Header</h2>
+	  				<h3 class="tr-title">Title</h3>
+	  				<h4 class="tr-subtitle">Sub Title</h>
+	  				<p class="tr-body">Body</p>
+					<p>
+				        <button type="button" class="btn btn-lg btn-default tr-title">Default</button>
+				        <button type="button" class="btn btn-lg btn-primary tr-title">Primary</button>
+				        <button type="button" class="btn btn-lg btn-success tr-title">Success</button>
+				        <button type="button" class="btn btn-lg btn-info tr-title">Info</button>
+				        <button type="button" class="btn btn-lg btn-warning tr-title">Warning</button>
+				        <button type="button" class="btn btn-lg btn-danger tr-title">Danger</button>
+				        <button type="button" class="btn btn-lg btn-link tr-title">Link</button>
+				    </p>
+				    <table class="table">
+			            <thead>
+			              <tr>
+			                <th class="tr-title">#</th>
+			                <th class="tr-title">First Name</th>
+			                <th class="tr-title">Last Name</th>
+			                <th class="tr-title">Username</th>
+			              </tr>
+			            </thead>
+			            <tbody>
+			              <tr>
+			                <td class="tr-body">1</td>
+			                <td class="tr-body">Mark</td>
+			                <td class="tr-body">Otto</td>
+			                <td class="tr-body">@mdo</td>
+			              </tr>
+			              <tr>
+			                <td class="tr-body">2</td>
+			                <td class="tr-body">Jacob</td>
+			                <td class="tr-body">Thornton</td>
+			                <td class="tr-body">@fat</td>
+			              </tr>
+			              <tr>
+			                <td class="tr-body">3</td>
+			                <td class="tr-body">Larry</td>
+			                <td class="tr-body">the Bird</td>
+			                <td class="tr-body">@twitter</td>
+			              </tr>
+			            </tbody>
+			        </table>
+			        <div class="panel panel-default">
+			            <div class="panel-heading">
+			              <h3 class="panel-title tr-title">Panel title</h3>
+			            </div>
+			            <div class="panel-body tr-body">
+			              Panel content
+			            </div>
+			        </div>
+			        <div class="well tr-caption">
+				        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas sed diam eget risus varius blandit sit amet non magna. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent commodo cursus magna, vel scelerisque nisl consectetur et. Cras mattis consectetur purus sit amet fermentum. Duis mollis, est non commodo luctus, nisi erat porttitor ligula, eget lacinia odio sem nec elit. Aenean lacinia bibendum nulla sed consectetur.</p>
+				    </div>
+				    <form>
+					  <div class="form-group">
+					    <label class="tr-title" for="exampleInputEmail1">Field Label</label>
+					    <input type="email" class="form-control" id="exampleInputEmail1" placeholder="Email">
+					  </div>
+					  <div class="form-group">
+					    <label class="tr-title" for="exampleInputEmail1">Field Label</label>
+					    <input type="email" class="form-control" id="exampleInputEmail1" placeholder="Email">
+					  </div>
+					</form>
+				</div>
+  			</div>
+  			<div class="col-md-4">
+  				<h2>Options</h2>
+  				<p>Adjust the options to create your type ramp</p>
+  				<form>
+				  <div class="form-group">
+				    <label for="exampleInputEmail1">Font</label>
+				    <input type="text" class="form-control" id="font" value="Times New Roman">
+				  </div>
+				  <div class="form-group">
+				    <label>Header</label>
+				    <input type="text" class="form-control size tr-header" id="header-size" value="4rem">
+				  </div>
+				  <div class="form-group">
+				    <label>Sub Header</label>
+				    <input type="text" class="form-control size tr-sub-header" id="sub-header-size" value="3rem">
+				  </div>
+				  <div>
+				    <label for="exampleInputEmail1">Title</label>
+				    <input type="text" class="form-control size tr-title" id="title-size" value="2rem">
+				  </div>
+				  <div>
+				    <label for="exampleInputEmail1">Sub Title</label>
+				    <input type="text" class="form-control size tr-subtitle" id="sub-title-size" value="1rem">
+				  </div>
+				  <div>
+				    <label for="exampleInputEmail1">Body</label>
+				    <input type="text" class="form-control size tr-body" id="body-size" value="1rem">
+				  </div>
+				  <div>
+				    <label for="exampleInputEmail1">Caption</label>
+				    <input type="text" class="form-control size tr-caption" id="caption-size" value="1rem">
+				  </div>
+				</form>
+  			</div>
+  		</div>
+  	</div>
+  	<script type="text/javascript">
+  	jQuery.noConflict();
+  	(function($) {
+  		var classes = ['.tr-header', '.tr-sub-header', '.tr-title', '.tr-subtitle', '.tr-body', '.tr-caption'];
+  		$(document).ready(function() {
+  			var fontFamily = $('#font').val();
+  			$.each(classes, function(index, value) {
+  				$(value+':not(.form-control)').css('font-family', fontFamily);
+  			});
+
+  			$.each(classes, function(index, value) {
+  				var input = $('.size'+value);
+
+  				$(value+':not(.size)').css('font-size', input.val());
+  				input.change(function() {
+  					$(value+':not(.size)').css('font-size', $(this).val());
+  				});
+  			});
+
+  			$('#font').change(function() {
+  				fontFamily = $('#font').val();
+  				$.each(classes, function(index, value) {
+	  				$(value+':not(.size)').css('font-family', fontFamily);
+	  			});
+  			});
+
+  		});
+  		$()
+  	})(jQuery);
+  	</script>
+  </body>
+</html>
